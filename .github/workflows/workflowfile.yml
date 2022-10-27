@@ -31,8 +31,8 @@ jobs:
           cluster-name: githubactionsaks
           resource-group: DefaultResourceGroup-SE
 
-      - run: |
-          kubectl create namespace githubrg
+#      - run: |
+#          kubectl create namespace githubrg
 
       - run: |
           kubectl apply -f pod.yaml
