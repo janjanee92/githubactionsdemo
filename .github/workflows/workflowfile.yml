@@ -1,11 +1,9 @@
-name: Continous Integration
+name: Continuous Integration Demo
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-    
+    branches: [main, feature/branch]
+
   workflow_dispatch:
   
 jobs:
@@ -17,6 +15,10 @@ jobs:
       
       - name: Run a one-line script
         run: echo Hello, world!
+
+      - name: running a custom step
+        run: |
+          ls -al
         
       - name: Run a multi-line script
         run: |
