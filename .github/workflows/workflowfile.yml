@@ -19,7 +19,11 @@ jobs:
       - name: running a custom step
         run: |
           ls -al
-        
+
+      - name: RUN AZ Command
+        run: |
+          az account show
+          az group list
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
@@ -42,7 +46,3 @@ jobs:
         run: docker login -u ${{ secrets.dockerhubusername}} -p ${{ secrets.dockerhubpassword }}
       - name: docker image push
         run: docker push watrv41/demo-kotlin2.0
-      - name: RUN AZ Command
-        run: |
-          az account show
-          az group list
