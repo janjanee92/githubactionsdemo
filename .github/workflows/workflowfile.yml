@@ -16,31 +16,40 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
+  get-the-files:
+    runs-on:  ubuntu-latest
+
+    steps:
       - name: running a custom step
         run: |
           ls -al
 
-      - name: Log in with Azure action
-        uses: azure/login@v1
-        with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
-
-      - uses: azure/aks-set-context@v1
-        with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
-          cluster-name: githubactionsaks
-          resource-group: DefaultResourceGroup-SE
-
+#      - name: Log in with Azure action
+#        uses: azure/login@v1
+#        with:
+#          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+#
+#      - uses: azure/aks-set-context@v1
+#        with:
+#          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+#          cluster-name: githubactionsaks
+#          resource-group: DefaultResourceGroup-SE
+#
+##      - run: |
+##          kubectl create namespace githubrg
+#
 #      - run: |
-#          kubectl create namespace githubrg
+#          kubectl apply -f pod.yaml
+#
+#      - name: RUN AZ Command
+#        run: |
+#          az account show
+#          az group list
 
-      - run: |
-          kubectl apply -f pod.yaml
+  get-the-multilinetask:
+    runs-on: ubuntu-latest
 
-      - name: RUN AZ Command
-        run: |
-          az account show
-          az group list
+    steps:
       - name: Run a multi-line script
         if: always()
         run: |
