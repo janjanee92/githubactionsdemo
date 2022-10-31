@@ -70,6 +70,12 @@ jobs:
         with:
           username: ${{ secrets.dockerhubusername }}
           password: ${{ secrets.dockerhubpassword }}
+      - name: docker image tag
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t watrv41/$IMAGE_TAG .
+          docker push watrv41/$IMAGE_TAG
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
