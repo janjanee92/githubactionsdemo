@@ -74,8 +74,8 @@ jobs:
         env:
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t watrv41/$IMAGE_TAG .
-          docker push watrv41/$IMAGE_TAG
+          docker build -t watrv41/${GITHUB_SHA::8} .
+          docker push watrv41/${GITHUB_SHA::8}
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
