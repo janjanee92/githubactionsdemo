@@ -50,7 +50,8 @@ jobs:
 
   get-the-multilinetask:
     needs:
-      - build, get-the-files
+      - build
+      - get-the-files
     runs-on: ubuntu-latest
 
     steps:
