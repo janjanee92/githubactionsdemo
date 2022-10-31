@@ -17,6 +17,8 @@ jobs:
         run: echo Hello, world!
 
   get-the-files:
+    needs:
+      - build
     runs-on:  ubuntu-latest
 
     steps:
@@ -47,6 +49,8 @@ jobs:
 #          az group list
 
   get-the-multilinetask:
+    needs:
+      - build
     runs-on: ubuntu-latest
 
     steps:
